@@ -28,62 +28,14 @@
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-            font-size: 36px; /* Adjusted font size for numbers */
-            text-align: center;
-            margin-top: 20px; /* Adjusted margin to lower everything */
         }
 
-        .countdown-item {
-            margin: 10px;
-            font-size: 16px; /* Adjusted font size for labels */
-        }
     </style>
 </head>
 <body>
 
-<div class="content" id="countdown-container">
-    <div class="countdown-item" id="days">0 Days</div>
-    <div class="countdown-item" id="hours">0 Hours</div>
-    <div class="countdown-item" id="minutes">0 Minutes</div>
-    <div class="countdown-item" id="seconds">0 Seconds</div>
+<div class="content">
 </div>
-
-<script>
-    // Set the target date and time for the countdown (replace with your desired date and time)
-    const targetDate = new Date("2024-01-31T12:00:00").getTime();
-
-    // Update the countdown every second
-    const countdownInterval = setInterval(updateCountdown, 1000);
-
-    function updateCountdown() {
-        const currentDate = new Date().getTime();
-        const timeDifference = targetDate - currentDate;
-
-        if (timeDifference > 0) {
-            const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
-
-            // Update the countdown items
-            document.getElementById('days').innerHTML = `${days} Days`;
-            document.getElementById('hours').innerHTML = `${hours} Hours`;
-            document.getElementById('minutes').innerHTML = `${minutes} Minutes`;
-            document.getElementById('seconds').innerHTML = `${seconds} Seconds`;
-        } else {
-            // If the countdown is over, display a message
-            const countdownContainer = document.getElementById('countdown-container');
-            countdownContainer.innerHTML = 'Countdown expired!';
-            // Clear the interval to stop updating the countdown
-            clearInterval(countdownInterval);
-        }
-    }
-</script>
 
 </body>
 </html>
