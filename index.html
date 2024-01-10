@@ -29,17 +29,28 @@
             background-position: center;
             background-repeat: no-repeat;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             color: #fff;
             font-size: 24px;
         }
 
+        .countdown-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 10px;
+        }
     </style>
 </head>
 <body>
 
 <div class="content" id="countdown-container">
+    <div class="countdown-item" id="days">0 Days</div>
+    <div class="countdown-item" id="hours">0 Hours</div>
+    <div class="countdown-item" id="minutes">0 Minutes</div>
+    <div class="countdown-item" id="seconds">0 Seconds</div>
 </div>
 
 <script>
@@ -59,9 +70,11 @@
             const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
 
-            // Display the countdown in the container
-            const countdownContainer = document.getElementById('countdown-container');
-            countdownContainer.innerHTML = `${days} Days ${hours} Hours ${minutes} Minutes ${seconds} Seconds`;
+            // Update the countdown items
+            document.getElementById('days').innerHTML = `${days} Days`;
+            document.getElementById('hours').innerHTML = `${hours} Hours`;
+            document.getElementById('minutes').innerHTML = `${minutes} Minutes`;
+            document.getElementById('seconds').innerHTML = `${seconds} Seconds`;
         } else {
             // If the countdown is over, display a message
             const countdownContainer = document.getElementById('countdown-container');
