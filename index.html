@@ -29,6 +29,7 @@
             background-position: center;
             background-repeat: no-repeat;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             color: #fff;
@@ -38,18 +39,18 @@
         }
 
         .countdown-item {
-            margin: 0 20px;
-            font-size: 18px; /* Adjusted font size for labels */
+            margin: 10px;
+            font-size: 16px; /* Adjusted font size for labels */
         }
     </style>
 </head>
 <body>
 
 <div class="content" id="countdown-container">
-    <div class="countdown-item" id="days">0<br>Days</div>
-    <div class="countdown-item" id="hours">0<br>Hours</div>
-    <div class="countdown-item" id="minutes">0<br>Minutes</div>
-    <div class="countdown-item" id="seconds">0<br>Seconds</div>
+    <div class="countdown-item" id="days">0 Days</div>
+    <div class="countdown-item" id="hours">0 Hours</div>
+    <div class="countdown-item" id="minutes">0 Minutes</div>
+    <div class="countdown-item" id="seconds">0 Seconds</div>
 </div>
 
 <script>
@@ -70,10 +71,10 @@
             const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
 
             // Update the countdown items
-            document.getElementById('days').innerHTML = `${days}<br>Days`;
-            document.getElementById('hours').innerHTML = `${hours}<br>Hours`;
-            document.getElementById('minutes').innerHTML = `${minutes}<br>Minutes`;
-            document.getElementById('seconds').innerHTML = `${seconds}<br>Seconds`;
+            document.getElementById('days').innerHTML = `${days} Days`;
+            document.getElementById('hours').innerHTML = `${hours} Hours`;
+            document.getElementById('minutes').innerHTML = `${minutes} Minutes`;
+            document.getElementById('seconds').innerHTML = `${seconds} Seconds`;
         } else {
             // If the countdown is over, display a message
             const countdownContainer = document.getElementById('countdown-container');
