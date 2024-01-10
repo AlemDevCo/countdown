@@ -25,18 +25,37 @@
     }
 
     .box {
+      position: relative;
       width: 68.8vw;
       height: 34.3vh;
-      background: linear-gradient(45deg, #E7A903 0%, rgba(0, 0, 0, 0) 70%);
       background-color: rgba(0, 0, 0, 0.45);
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      overflow: hidden;
+    }
+
+    .box::before,
+    .box::after {
+      content: "";
+      position: absolute;
+      width: 20px; /* Adjust the size of the corner gradient */
+      height: 20px; /* Adjust the size of the corner gradient */
+      background: linear-gradient(45deg, #E7A903 0%, rgba(0, 0, 0, 0) 70%);
+    }
+
+    .box::before {
+      top: 0;
+      left: 0;
+    }
+
+    .box::after {
+      top: 0;
+      right: 0;
+      transform: scaleX(-1);
     }
 
     .title {
       color: #FFFFFF;
       font-family: 'Roboto', sans-serif;
+      z-index: 1;
     }
   </style>
 </head>
