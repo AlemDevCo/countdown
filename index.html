@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Website</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300">
     <style>
         body {
             margin: 0;
@@ -16,9 +17,11 @@
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
+            font-family: 'Roboto', sans-serif;
         }
 
         .content {
+            position: relative;
             width: 688px;
             height: 343px;
             background-image: url('https://fileshare.alemdev.org/Group%2017.png');
@@ -26,11 +29,23 @@
             background-position: center;
             background-repeat: no-repeat;
         }
+
+        .text {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 24px; /* Adjust the font size as needed */
+            font-weight: 300; /* Roboto Light font weight */
+            color: #fff; /* Text color */
+        }
     </style>
 </head>
 <body>
 
-<div class="content"></div>
+<div class="content">
+    <div class="text">ANNIHILATION</div>
+</div>
 
 </body>
 </html>
