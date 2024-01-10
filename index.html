@@ -28,14 +28,49 @@
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 24px;
         }
 
     </style>
 </head>
 <body>
 
-<div class="content">
+<div class="content" id="countdown-container">
 </div>
+
+<script>
+    // Set the target date and time for the countdown (replace with your desired date and time)
+    const targetDate = new Date("2024-01-31T12:00:00").getTime();
+
+    // Update the countdown every second
+    const countdownInterval = setInterval(updateCountdown, 1000);
+
+    function updateCountdown() {
+        const currentDate = new Date().getTime();
+        const timeDifference = targetDate - currentDate;
+
+        if (timeDifference > 0) {
+            const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+            // Display the countdown in the container
+            const countdownContainer = document.getElementById('countdown-container');
+            countdownContainer.innerHTML = `${days} Days ${hours} Hours ${minutes} Minutes ${seconds} Seconds`;
+        } else {
+            // If the countdown is over, display a message
+            const countdownContainer = document.getElementById('countdown-container');
+            countdownContainer.innerHTML = 'Countdown expired!';
+            // Clear the interval to stop updating the countdown
+            clearInterval(countdownInterval);
+        }
+    }
+</script>
 
 </body>
 </html>
