@@ -19,6 +19,7 @@
             background-position: center;
             background-repeat: no-repeat;
             font-family: 'Roboto', sans-serif;
+            color: #fff; /* Text color */
         }
 
         .content {
@@ -33,25 +34,41 @@
 
         .text {
             position: absolute;
-            top: 15%; /* Adjust the top position as needed */
+            top: 15%;
             left: 50%;
             transform: translateX(-50%);
-            font-size: 32px; /* Adjust the font size as needed */
-            font-weight: 300; /* Roboto Light font weight */
-            color: #fff; /* Text color */
+            font-size: 32px;
+            font-weight: 300;
+            color: #fff;
         }
 
         .countdown {
             position: absolute;
-            top: 55%; /* Adjust the top position for the countdown */
+            top: 55%;
             left: 50%;
             transform: translateX(-50%);
             font-family: 'Inter', sans-serif;
             font-weight: thin;
-            color: #242424;
+            color: #fff;
             font-size: 40px;
             text-align: center;
             margin: 0px;
+        }
+
+        .numbercontainer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .number {
+            margin: 5px;
+            font-size: 24px;
+        }
+
+        .numberlabel {
+            font-size: 16px;
         }
 
         .aftercountdown {
@@ -67,7 +84,7 @@
             border: none;
             border-radius: 10px;
             padding: 13px;
-            color: white;
+            color: #fff;
             box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
             letter-spacing: 1.4px;
             font-family: roboto;
@@ -82,7 +99,12 @@
     <div class="text">ANNIHILATION</div>
 </div>
 
-<div class="countdown" id="countdown"></div>
+<div class="countdown" id="countdown">
+    <div class="numbercontainer"><div id="days" class="number"></div><div class="numberlabel">DAYS</div></div>
+    <div class="numbercontainer"><div id="hours" class="number"></div><div class="numberlabel">HRS</div></div>
+    <div class="numbercontainer"><div id="minutes" class="number"></div><div class="numberlabel">MINS</div></div>
+    <div class="numbercontainer"><div id="seconds" class="number"></div><div class="numberlabel">SECS</div></div>
+</div>
 
 <div class="aftercountdown" id="aftercountdown">
     <p id="demo"></p>
@@ -102,14 +124,17 @@
         // Find the distance between now and the count down date
         var distance = countDownDate - now;
 
-        // Time calculations for days, hours, minutes and seconds
+        // Time calculations for days, hours, minutes, and seconds
         var days = Math.floor(distance / (1000 * 60 * 60 * 24));
         var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
         // Output the result in an element with id="countdown"
-        document.getElementById("countdown").innerHTML = `${days} Days ${hours} Hrs ${minutes} Mins ${seconds} Secs`;
+        document.getElementById("days").innerHTML = days;
+        document.getElementById("hours").innerHTML = hours;
+        document.getElementById("minutes").innerHTML = minutes;
+        document.getElementById("seconds").innerHTML = seconds;
 
         // If the count down is over, show play now button and message
         if (distance < 0) {
