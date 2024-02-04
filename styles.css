@@ -1,54 +1,20 @@
 body {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-  background-image: url('https://fileshare.alemdev.org/Capture.PNG');
-  background-size: cover;
+    margin: 0;
+    padding: 0;
+    background-image: url('https://fileshare.alemdev.org/Capture.PNG');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
 }
 
-.container {
-  max-width: 600px;
-  margin: 50px auto;
-  padding: 20px;
-  background-color: rgba(255, 255, 255, 0.8);
-  border-radius: 10px;
+.google-form-container {
+    width: 640px; /* Adjust width as per your form */
+    height: 800px; /* Adjust height as per your form */
+    margin: 50px auto;
+    background-color: rgba(255, 255, 255, 0.8); /* Add some opacity */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
-h1 {
-  text-align: center;
-}
-
-.form-group {
-  margin-bottom: 20px;
-}
-
-label {
-  display: block;
-  font-weight: bold;
-}
-
-input[type="text"],
-textarea {
-  width: 100%;
-  padding: 10px;
-  font-size: 16px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-}
-
-button[type="submit"] {
-  display: block;
-  width: 100%;
-  padding: 10px;
-  font-size: 18px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-button[type="submit"]:hover {
-  background-color: #0056b3;
-}
+/* You may need to adjust the styles for responsiveness */
